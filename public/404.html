@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SEULQR</title>
+    <script>
+      // GitHub Pages SPA fallback.
+      // Unknown deep links (e.g. /SEULQR/menu) hit this 404 page.
+      // We forward the requested path to the real app via a query param,
+      // then index.html restores the clean URL with history.replaceState.
+      (function () {
+        var p = window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace('/SEULQR/?p=' + encodeURIComponent(p));
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

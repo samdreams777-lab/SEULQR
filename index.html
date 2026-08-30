@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#111111" />
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png" />
-    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="%BASE_URL%favicon.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%favicon.png" />
     <meta name="description" content="Khám phá Seoul Korean Cuisine — Nhà hàng Hàn Quốc chính hiệu với Lẩu, Mì Kim Chi, Tokbokki, Gà rán, Trà sữa. Nguyên liệu tươi, không gian ấm cúng." />
     <link rel="canonical" href="https://seoulkoreancuisine.vn/" />
     <link rel="alternate" hreflang="vi" href="https://seoulkoreancuisine.vn/" />
@@ -20,6 +20,17 @@
     <title>Nhà hàng Hàn Quốc Seoul Korean Cuisine — Món Hàn Đích Thực, Lẩu, Mì, Tokbokki</title>
   </head>
   <body>
+    <script>
+      // Restore clean SPA URL after a GitHub Pages 404 fallback redirect.
+      // The 404.html forwards deep links as /SEULQR/?p=<path>; this rewrites
+      // the address bar back to the real path before React mounts.
+      (function () {
+        var m = window.location.search.match(/[?&]p=([^&]+)/);
+        if (m) {
+          history.replaceState(null, '', decodeURIComponent(m[1]));
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
