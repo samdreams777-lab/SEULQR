@@ -42,10 +42,9 @@ export default function App() {
               <Route index element={<PrivacyPage />} />
             </Route>
             {/* SPA fallback: unknown deep links (e.g. /cart) render the home
-                page instead of a blank screen after the GitHub Pages 404 redirect. */}
-            <Route path="*" element={<Layout pageType="home" />}>
-              <Route index element={<HomePage />} />
-            </Route>
+                page (with shared layout) instead of a blank screen after the
+                GitHub Pages 404 redirect. */}
+            <Route path="*" element={<Layout pageType="home"><HomePage /></Layout>} />
           </Routes>
         </BrowserRouter>
         </CartProvider>

@@ -7,13 +7,14 @@ import heroBg from '../../assets/mainlogo.webp';
 
 interface LayoutProps {
   pageType: 'home' | 'menu' | 'location' | 'about' | 'fresh-ingredients' | 'contact' | 'privacy';
+  children?: React.ReactNode;
 }
 
 /**
  * Single shared layout: one background (Main logo), one Header,
  * one Cart bar. Bottom navigation removed entirely (spec 2).
  */
-export function Layout({ pageType }: LayoutProps) {
+export function Layout({ pageType, children }: LayoutProps) {
   return (
     <>
       <SEOHead pageType={pageType} />
@@ -33,7 +34,7 @@ export function Layout({ pageType }: LayoutProps) {
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 pt-20 md:pt-24" id="main-content">
-          <Outlet />
+          {children ?? <Outlet />}
         </main>
         {pageType !== 'home' && <Footer />}
         <CartWidget />
