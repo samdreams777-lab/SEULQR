@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { MenuProvider } from './context/MenuContext';
 import { ItemOptionsProvider } from './context/ItemOptionsContext';
@@ -41,6 +41,9 @@ export default function App() {
             <Route path="/privacy" element={<Layout pageType="privacy" />}>
               <Route index element={<PrivacyPage />} />
             </Route>
+            {/* SPA fallback: unknown deep links (e.g. /cart) land on home
+                instead of a blank screen after the GitHub Pages 404 redirect. */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
         </CartProvider>
